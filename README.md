@@ -1,9 +1,5 @@
 # SecurePiShell
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 SecurePiShell is a Java application that provides a graphical user interface for connecting to a Raspberry Pi using SSH.
 
 ## Features
@@ -14,7 +10,7 @@ SecurePiShell is a Java application that provides a graphical user interface for
 
 ## Prerequisites
 
-- Java (version X.X.X)
+- J2SE (version 1.4.0 or later)
 - jsch library (version 0.1.55)
 
 ## Installation
@@ -22,7 +18,7 @@ SecurePiShell is a Java application that provides a graphical user interface for
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/selzlett/ssh-connector-gui.git
+    git clone https://github.com/selzlett/sshSecure-Pi-Shell.git
     ```
 
 2. Navigate to the project directory:
