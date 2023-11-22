@@ -15,6 +15,9 @@ public class SSHConnectorApp extends JFrame {
     private JPasswordField passwordField;
     private JButton connectButton, executeButton, clearButton;
     private JTextArea outputArea;
+    private JLabel connectionStatusLabel;
+    private Color connectedColor = Color.GREEN;
+    private Color disconnectedColor = Color.RED;
 
     private Session session;
 
@@ -55,6 +58,9 @@ public class SSHConnectorApp extends JFrame {
         outputArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(outputArea);
 
+        connectionStatusLabel = new JLabel("Disconnected");
+        connectionStatusLabel.setForeground(disconnectedColor);
+
         // Set layout
         setLayout(new BorderLayout());
 
@@ -73,6 +79,7 @@ public class SSHConnectorApp extends JFrame {
         buttonPanel.add(connectButton);
         buttonPanel.add(executeButton);
         buttonPanel.add(clearButton);
+        buttonPanel.add(connectionStatusLabel);
 
         // Add components to the frame
         add(inputPanel, BorderLayout.NORTH);
@@ -101,8 +108,10 @@ public class SSHConnectorApp extends JFrame {
             session.connect();
 
             setStatus("Connected to " + host);
+            updateConnectionStatus(true); // Update the visual indicator
         } catch (JSchException e) {
             setStatus("Connection failed. Check credentials and try again.");
+            updateConnectionStatus(false); // Update the visual indicator
             e.printStackTrace();
         }
     }
@@ -146,6 +155,16 @@ public class SSHConnectorApp extends JFrame {
 
     private void setStatus(String status) {
         outputArea.append("\n" + status);
+    }
+
+    private void updateConnectionStatus(boolean isConnected) {
+        if (isConnected) {
+            connectionStatusLabel.setText("Connected");
+            connectionStatusLabel.setForeground(connectedColor);
+        } else {
+            connectionStatusLabel.setText("Disconnected");
+            connectionStatusLabel.setForeground(disconnectedColor);
+        }
     }
 
     public static void main(String[] args) {
