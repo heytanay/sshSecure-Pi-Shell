@@ -1,4 +1,23 @@
-# SecurePiShell
+# SecurePiShell - Version 1.0.0
+
+
+## Improvements in this Release
+
+### Security and Password Handling
+
+- **Secure Password Handling:** Passwords are now handled securely by working directly with the character array returned by `getPassword()`. This enhances the overall security of the application.
+
+### Input Validation
+
+- **Enhanced Input Validation:** Improved input validation ensures that users provide valid information for hostname, username, and password. This helps prevent issues related to missing or incorrect input.
+
+### Visual Indicators
+
+- **Connection Status Indicators:** Visual indicators have been added to display the current connection status (connected/disconnected). The connection status label dynamically updates its color based on the connection state, providing a clear visual cue to users.
+
+### User Interface
+
+- **UI Enhancements:** The user interface has been enhanced with a clear layout for input fields, buttons, and the output area. This improves the overall user experience and makes the application more user-friendly.
 
 SecurePiShell is a Java application that provides a graphical user interface for connecting to a Raspberry Pi using SSH.
 
